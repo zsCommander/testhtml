@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>仅打开i远东</h1>
-    <a href="mobileportal://">调用</a>
+    <a href="iydportal://">调用</a>
     <h1>
         打开远东中的具体应用，如：在线考勤
         使用方式：该链接，以 openurl方式打开
@@ -14,7 +14,7 @@
         thirdAppModuleName 包括日常办公(officeApp),业务应用(businessApp)
         childName 取要打开应用的图片名称,比如:mh_zaixiankaoqin
     </h1>
-    <a href="mobileportal://?thirdAppModuleName=officeApp&childName=mh_zaixiankaoqin">调用</a>
+    <a href="iydportal://?thirdAppModuleName=officeApp&childName=mh_zaixiankaoqin">调用</a>
     <h1>打开更深级别的页面,输入完整URL及UI配置</h1>
 
     <!-- 原始链接 -->
@@ -32,7 +32,7 @@
                 
                 // 3. 拼接新链接
                 const link = document.getElementById('dynamicLink');
-                link.href = `mobileportal://?params=${encodedParams}`;
+                link.href = `iydportal://?params=${encodedParams}`;
                 
                 // 4. 显示生成结果
                 console.log('新链接:', link.href);
