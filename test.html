@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成协议链接</title>
+</head>
+<body>
+    <h1>仅打开i远东</h1>
+    <a href="mobileportal://">调用</a>
+    <h1>
+        打开远东中的具体应用，如：在线考勤
+        使用方式：该链接，以 openurl方式打开
+        参数说明：
+        thirdAppModuleName 包括日常办公(officeApp),业务应用(businessApp)
+        childName 取要打开应用的图片名称,比如:mh_zaixiankaoqin
+    </h1>
+    <a href="mobileportal://?thirdAppModuleName=officeApp&childName=mh_zaixiankaoqin">调用</a>
+    <h1>打开更深级别的页面,输入完整URL及UI配置</h1>
+
+    <!-- 原始链接 -->
+    <a id="dynamicLink" href="mobileportal://">跳转链接</a>
+    <br>
+    <!-- 触发按钮 -->
+    <button onclick="generateLink()">生成新链接</button>
+
+    <script>
+        async function generateLink() {
+            try {                
+                // 2. 转换为JSON字符串并编码
+                const jsonString = '{"data":"https://a.fehorizon.com/portal/WP/WP1/NWP1005.html?_bids=WP+static&_PARAMSKEY=E187F4EA","extras":{"hideNavigation":false,"pullRefreshEnable":false,"pullRefreshCallBack":false,"setNavigationColor":"#FFFFFF","titleBarColor":16777215,"showOptionMenu":false,"showTitleBar":true,"titleColor":"#222222","title":"操作记录","setStateBarTextColor":"dark"}}'
+                const encodedParams = encodeURIComponent(jsonString);
+                
+                // 3. 拼接新链接
+                const link = document.getElementById('dynamicLink');
+                link.href = `mobileportal://?params=${encodedParams}`;
+                
+                // 4. 显示生成结果
+                console.log('新链接:', link.href);
+                alert('链接已更新，点击跳转链接测试');
+            } catch (error) {
+                console.error('生成失败:', error);
+                alert('数据获取失败，请检查网络连接');
+            }
+        }
+    </script>
+</body>
+</html>
